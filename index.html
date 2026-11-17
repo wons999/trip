@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; frame-src 'self' about:; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="theme-color" content="#315f4f"><title>여행 노트</title>
+<style>
+:root{color-scheme:light;--paper:#f7f6f0;--ink:#263e34;--muted:#6b7b70;--green:#315f4f;--line:#dce3d9}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif;line-height:1.6}.lock{min-height:100svh;display:grid;place-items:center;padding:24px;background:radial-gradient(ellipse at 50% 0,#dce8d9,transparent 64%)}.card{width:min(100%,420px);padding:38px 30px 28px;background:#fffefa;border:1px solid var(--line);border-radius:24px;box-shadow:0 22px 70px #263e3410}.mark{width:64px;height:64px;display:grid;place-items:center;background:#e7eee2;border-radius:50%;font:30px Georgia,serif;color:var(--green);margin:auto}.eyebrow{text-align:center;font-size:10px;letter-spacing:.18em;color:var(--muted);margin:24px 0 8px}h1{text-align:center;font-size:29px;letter-spacing:-.05em;font-weight:600;margin:0}p{text-align:center;font-size:14px;color:var(--muted);margin:12px 0}.brand{font-family:Georgia,serif;font-size:18px}label{font-size:13px;display:block;margin:24px 0 7px}input,button{font:inherit;width:100%;border-radius:10px;padding:13px 14px;min-height:48px}input{border:1px solid var(--line);background:transparent;color:var(--ink);font-size:16px}input:focus-visible{outline:2px solid var(--green);outline-offset:2px}button{margin-top:12px;border:0;background:var(--green);color:white;font-weight:600;cursor:pointer}button:disabled{opacity:.65;cursor:wait}.status{min-height:25px;color:#a1463d;font-size:13px;margin-bottom:0}.note{font-size:12px;margin-top:20px}.foot{text-align:center;font-size:10px;letter-spacing:.1em;margin-top:24px;color:var(--muted)}iframe{width:100%;height:100dvh;height:100svh;border:0;display:block;background:var(--paper)}[hidden]{display:none!important}@media(max-width:360px){.lock{padding:15px}.card{padding:30px 21px}h1{font-size:26px}}@media(prefers-color-scheme:dark){:root{color-scheme:dark;--paper:#19221e;--ink:#e1e9e0;--muted:#afc2b5;--green:#b6d2bd;--line:#3c4e42}.lock{background:radial-gradient(ellipse at 50% 0,#334e3c,transparent 64%)}.card{background:#212e27}.mark{background:#33483a}button{color:#1d2c22}.status{color:#eda49a}}
+</style></head><body>
+<section class="lock" id="lock-screen"><div class="card"><div class="mark" aria-hidden="true">旅</div><div class="eyebrow">PLACES, PLANS & MEMORIES</div><h1>여행 노트</h1><p>함께 고르고, 차근차근 준비하는<br>우리의 여행 계획.</p><form id="unlock-form"><label for="password">공유받은 비밀번호</label><input id="password" name="password" type="password" inputmode="numeric" autocomplete="off" required placeholder="비밀번호를 입력하세요"><button id="unlock-button" type="submit">여행 계획 열기 →</button><p class="status" id="status" role="status" aria-live="polite"></p></form><p class="note">비밀번호는 기기 안에서만 사용합니다.<br>새로고침하거나 다시 잠그면 다시 입력해야 해요.</p><div class="foot"><span class="brand">旅 · Trip Notes</span></div></div></section>
+<iframe id="viewer" title="여행 목록" sandbox="allow-scripts allow-same-origin allow-downloads" referrerpolicy="no-referrer" hidden></iframe>
+<noscript><p>여행 계획을 열려면 브라우저에서 JavaScript를 허용해 주세요.</p></noscript>
+<script id="encrypted" type="application/json">{"format":1,"compression":"gzip","kdf":"PBKDF2-SHA-256","iterations":1000000,"salt":"ZhOPEfVEultdrEVxIQj7nQ==","iv":"s//VkKZY4FbPR97I","cipher":"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"}</script>
+<script>
+(()=>{
+ const $=id=>document.getElementById(id),frame=$('viewer'),payload=JSON.parse($('encrypted').textContent);
+ const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+ let generation=0,opened=false;
+ function lock(){
+  generation++;opened=false;frame.hidden=true;frame.removeAttribute('srcdoc');frame.src='about:blank';
+  $('lock-screen').hidden=false;$('password').value='';$('status').textContent='';$('unlock-button').disabled=false;
+  document.title='여행 노트';$('password').focus();
+ }
+ frame.addEventListener('load',()=>{if(opened){$('lock-screen').hidden=true;frame.hidden=false;document.title='여행 노트 · 여행 목록';}});
+ window.addEventListener('message',event=>{if(event.source!==frame.contentWindow)return;if(event.data?.type==='trip-catalog-lock')lock();else if(opened&&event.data?.type==='trip-catalog-open'&&["japan-2027/"].includes(event.data.path))window.location.assign(new URL(event.data.path,window.location.href).href);});
+ $('unlock-form').addEventListener('submit',async event=>{
+  event.preventDefault();const version=++generation,password=$('password').value;
+  $('unlock-button').disabled=true;$('status').textContent='여행 계획을 여는 중…';
+  try{
+   if(!globalThis.crypto?.subtle||typeof DecompressionStream==='undefined')throw new Error('unsupported');
+   const material=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveKey']);
+   const key=await crypto.subtle.deriveKey({name:'PBKDF2',hash:'SHA-256',salt:b64(payload.salt),iterations:payload.iterations},material,{name:'AES-GCM',length:256},false,['decrypt']);
+   const bytes=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(payload.iv)},key,b64(payload.cipher));
+   const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+   const app=await new Response(stream).text();
+   if(version!==generation)return;
+   if(!app.startsWith('<!doctype html>'))throw new Error('format');
+   $('password').value='';$('status').textContent='';opened=true;frame.removeAttribute('src');frame.srcdoc=app;
+  }catch(error){
+   if(version!==generation)return;
+   opened=false;$('status').textContent=error.message==='unsupported'?'최신 Safari·Chrome에서 HTTPS 링크로 열어 주세요.':'비밀번호를 다시 확인해 주세요.';
+   $('password').select();
+  }finally{if(version===generation)$('unlock-button').disabled=false;}
+ });
+})();
+</script></body></html>
